@@ -1,0 +1,21 @@
+{
+  "name": "scamshield",
+  "version": "1.0.0",
+  "description": "A free, private scam-message checker that runs entirely in the browser.",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "test": "node --test",
+    "start": "python3 -m http.server 8080"
+  },
+  "keywords": [
+    "scam",
+    "phishing",
+    "fraud",
+    "privacy",
+    "security",
+    "offline"
+  ],
+  "author": "Mubaraq Lawal",
+  "license": "MIT"
+}

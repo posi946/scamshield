@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ScamShield: check a message before you click</title>
+    <meta
+      name="description"
+      content="A free, private scam-message checker. Paste a suspicious text, email, or DM and see the warning signs. Everything runs in your browser."
+    />
+    <meta name="theme-color" content="#123c3a" />
+    <link rel="icon" href="icon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <a class="brand" href="./" aria-label="ScamShield home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <path d="M16 3 27 7v8c0 7-4.7 12-11 14C9.7 27 5 22 5 15V7l11-4Z" fill="none" stroke="currentColor" stroke-width="2.2" />
+          <path d="m11 15.5 3.4 3.4L21.5 12" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+        <span>ScamShield</span>
+      </a>
+      <p class="header-note">Free. Private. No account.</p>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">A second pair of eyes</p>
+          <h1 id="hero-title">Check a message before you click.</h1>
+          <p class="lede">
+            Paste a suspicious text, email, or DM. ScamShield looks for the tactics scammers reuse:
+            pressure, payment demands, credential theft, and dangerous links.
+          </p>
+          <p class="privacy">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="4" y="10" width="16" height="10" rx="2" fill="none" stroke="currentColor" stroke-width="2" />
+              <path d="M8 10V7a4 4 0 0 1 8 0v3" fill="none" stroke="currentColor" stroke-width="2" />
+            </svg>
+            Nothing you paste leaves this device. No tracking, no upload, no account.
+          </p>
+        </div>
+
+        <form id="check-form" class="checker-card">
+          <label for="message">Message to check</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="8"
+            spellcheck="false"
+            placeholder="Paste the full message here, including any link..."
+          ></textarea>
+          <p class="hint">Do not paste passwords, card numbers, or one-time codes.</p>
+          <div class="actions">
+            <button type="submit" class="button primary">Check message</button>
+            <button type="button" id="example" class="button secondary">Try an example</button>
+            <button type="button" id="clear" class="button ghost">Clear</button>
+          </div>
+        </form>
+      </section>
+
+      <section id="result" class="result" aria-labelledby="result-title" aria-live="polite" hidden>
+        <div class="score-card">
+          <div class="score">
+            <span id="score-value">0</span>
+            <span class="score-total">/100</span>
+          </div>
+          <div class="score-copy">
+            <p id="band-label" class="band-label">No signals</p>
+            <p id="band-summary" class="band-summary"></p>
+            <div class="meter" aria-hidden="true">
+              <span id="score-meter"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="result-grid">
+          <section class="panel" aria-labelledby="result-title">
+            <div class="panel-head">
+              <h2 id="result-title" tabindex="-1">What stood out</h2>
+              <p id="findings-count" class="count"></p>
+            </div>
+            <ol id="findings-list" class="findings"></ol>
+          </section>
+
+          <section class="panel next-panel" aria-labelledby="next-title">
+            <div class="panel-head">
+              <h2 id="next-title">Do this next</h2>
+            </div>
+            <ul id="next-list" class="next-list"></ul>
+            <div class="report-actions">
+              <button type="button" id="copy-report" class="button secondary">Copy report</button>
+              <button type="button" id="reset" class="button ghost">Check another</button>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section class="how" aria-labelledby="how-title">
+        <div class="how-head">
+          <p class="eyebrow">How it works</p>
+          <h2 id="how-title">Patterns, not mind reading.</h2>
+          <p>
+            ScamShield checks the message against known warning signs and explains each match. It
+            never decides for you and never sends your text anywhere.
+          </p>
+        </div>
+        <ul class="signal-grid">
+          <li><strong>Pressure</strong><span>Deadlines, threats, and “act now” language.</span></li>
+          <li><strong>Secrets</strong><span>Requests for passwords, PINs, or one-time codes.</span></li>
+          <li><strong>Payment</strong><span>Gift cards, crypto, transfers, and release fees.</span></li>
+          <li><strong>Links</strong><span>Shorteners, lookalike domains, raw IPs, and risky endings.</span></li>
+          <li><strong>Access</strong><span>Remote-access tools, APKs, and macro-enabled files.</span></li>
+          <li><strong>Bait</strong><span>Prizes, guaranteed returns, and too-good offers.</span></li>
+        </ul>
+      </section>
+
+      <section class="limits" aria-labelledby="limits-title">
+        <h2 id="limits-title">What this cannot do</h2>
+        <p>
+          This is guidance, not a guarantee. A message can be a scam without matching these
+          patterns, and a legitimate message can use urgent language. If money or personal data is
+          involved, verify the sender through an official app or a phone number you look up
+          yourself.
+        </p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>ScamShield is free and open source. Built to be useful, not to collect data.</p>
+      <p><a href="https://github.com/posi946/scamshield">Source on GitHub</a></p>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+  </body>
+</html>
